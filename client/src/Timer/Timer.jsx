@@ -9,22 +9,49 @@ export const Timer = () => {
   const [isMinutes, setIsMinutes] = useState(true);
 
   const sliderChange = (e) => setTime(e.target.value);
-  const buttonChange = (direction) => {
-    if (direction === 'up' && isMinutes) setTime(timeLeft+1);
-    else if (direction === 'up' && !isMinutes) setTime(timeLeft+60);
-    else if (direction === 'down' && isMinutes) setTime(timeLeft-1);
-    else setTime(timeLeft-60);
-  }
+  const buttonUp = () => setTime(timeLeft+1);
+  const buttonDown = () => setTime(timeLeft-1);
+  const minsSwitch = () => isMinutes ? setIsMinutes(false) : setIsMinutes(true);
+  
 
   useEffect(() => {
-    const timerInterval = setInterval(() => setTime(timeLeft-1), 1000)
-    return () => clearInterval(timerInterval);
+    if (timeLeft > 0) {
+      const timerInterval = setInterval(() => setTime(timeLeft-1), 1000)
+      return () => clearInterval(timerInterval);
+    }
+    
   }, [timeLeft])
 
   return (
-    <div>
+    <div className="timer-container">
+
+      <div className="rows">
+
+      <div className="first-row">
+
+        <div className="screen">
+          <div className="clock-container">
+            <img src={clock} alt="" />
+          </div>
+          
+          <div className="font-face-digi time">
+            {isMinutes ? `${timeLeft} MIN` : `${timeLeft/60} HR`}
+            </div>
+        </div>
+
+        <div className="buttons">
+          <button onClick={buttonUp}>up</button>
+          <button onClick={buttonDown}>down</button>
+        </div>
+
+      </div>
+
+      <div className="second-row">
+        <button onClick={minsSwitch}>hrs/mins</button>
+        <input type="range" min={0} max={100} value={timeLeft} onChange={sliderChange} />
+      </div>
+    </div>
       
-      {timeLeft}
     </div>
   )
 }
