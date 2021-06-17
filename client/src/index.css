@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'DIGIbold';
+  src: local("DIGIbold"),
+    url("./assets/DS-DIGIB.TTF") format("truetype");
+  font-weight: bold;
+}
