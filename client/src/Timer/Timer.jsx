@@ -8,7 +8,10 @@ export const Timer = () => {
   const [timeLeft, setTime] = useState(100);
   const [isMinutes, setIsMinutes] = useState(true);
 
-  const sliderChange = (e) => setTime(e.target.value);
+  const sliderChange = (e) => {
+    if(isMinutes)setTime(e.target.value);
+    else setTime(e.target.value*60);
+  } 
   const buttonUp = () => setTime(timeLeft+1);
   const buttonDown = () => setTime(timeLeft-1);
   const minsSwitch = () => isMinutes ? setIsMinutes(false) : setIsMinutes(true);
@@ -27,30 +30,30 @@ export const Timer = () => {
 
       <div className="rows">
 
-      <div className="first-row">
+        <div className="first-row">
 
-        <div className="screen">
-          <div className="clock-container">
-            <img src={clock} alt="" />
-          </div>
-          
-          <div className="font-face-digi time">
-            {isMinutes ? `${timeLeft} MIN` : `${timeLeft/60} HR`}
+          <div className="screen">
+            <div className="clock-container">
+              <img src={clock} alt="" />
             </div>
+            
+            <div className="font-face-digi time">
+              {isMinutes ? `${timeLeft} MIN` : `${Math.floor(timeLeft/60)} HR`}
+            </div>
+          </div>
+
+          <div className="buttons">
+            <button onClick={buttonUp}>up</button>
+            <button onClick={buttonDown}>down</button>
+          </div>
+
         </div>
 
-        <div className="buttons">
-          <button onClick={buttonUp}>up</button>
-          <button onClick={buttonDown}>down</button>
+        <div className="second-row">
+          <button onClick={minsSwitch}>hrs/mins</button>
+          <input type="range" min={0} max={100} value={timeLeft} onChange={sliderChange} />
         </div>
-
       </div>
-
-      <div className="second-row">
-        <button onClick={minsSwitch}>hrs/mins</button>
-        <input type="range" min={0} max={100} value={timeLeft} onChange={sliderChange} />
-      </div>
-    </div>
       
     </div>
   )

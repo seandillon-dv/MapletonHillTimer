@@ -1,0 +1,58 @@
+.timer-container {
+  background-color: #2E2E2E;
+  height: 30vh;
+  width: 70vh;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+
+  .rows {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+
+
+
+    .first-row {
+      display: flex;
+      flex-direction: row;
+      align-self: center;
+      background-color: green;
+      width: 87%;
+      height: 40%;
+      .screen {
+        display: flex;
+        flex-direction: row;
+        overflow: auto;
+        background-color: black;
+        height: 100%;
+        width: 75%;
+        border-radius: 3px;
+        align-items: center;
+        justify-content: center;
+        .clock-container {
+          img {
+            height: 100%;
+            width: 100%;
+            // box-shadow: 0px 0px 5px #B0FFFF;
+            -webkit-filter: drop-shadow(1px 1px 6px #B0FFFF);
+          }
+          height: 3vh;
+          width: 3vh;
+        }
+        .time {
+          font-size: 5vh;
+        }
+      
+      }
+  
+      .buttons {
+  
+      }
+    }
+  }
+
+}
