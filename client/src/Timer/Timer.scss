@@ -44,9 +44,13 @@
           }
           height: 30px;
           width: 30px;
+          margin-right: 100px
         }
         .time {
           font-size: 50px;
+          display: flex;
+          flex-direction: row;
+          width: 103px;
         }
       
       }
@@ -73,6 +77,32 @@
     }
   }
 
+}
+
+.second-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  margin-top: 16px;
+  width: 432px;
+  .slider-container {
+    width: 66%;
+    input {
+      width: 94%;
+    }
+  }
+
+  .hrs-bttn-container {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 39%;
+
+    
+  }
 }
 
 .bttn {
@@ -132,7 +162,7 @@
   border-radius: 1px;
   margin-top: 5px;
   color: white;
-  div {
+    .circ {
     margin-right: 5px;
     height: 6px;
     width: 6px;
@@ -140,5 +170,47 @@
     border-radius: 50%;
 
   }
+  .no-circ {
+    margin-right: 5px;
+    height: 6px;
+    width: 6px;
+    background-color: #b0ffff00;
+    border-radius: 50%;
+
+  }
+
 }
+
+.mins-toggle {
+  width: 40px;
+  height: 20px;
+  background-color: #161616 ;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  .left {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #bebebe;
+    margin-left: 3px;
+  }
+  .right {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #bebebe;
+    margin-left: 20px;
+  }
+}
+
+.digi-resize {
+  font-size: medium;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 6px;
+  margin-left: 4px;
+}
+
+
 
